@@ -1,0 +1,11 @@
+*~
+local-init.el
+ac-comphist.dat
+ac-dict
+auto-save-list
+bookmarks
+elpa
+eshell/
+lisp/
+tramp
+url/
