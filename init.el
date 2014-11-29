@@ -103,7 +103,7 @@
 ;;;;;;;;;;;;;;;;;;;
 ;; Ace Jump Mode ;;
 ;;;;;;;;;;;;;;;;;;;
-(define-key global-map (kbd "C-;") 'ace-jump-mode)
+(define-key global-map (kbd "C-c j") 'ace-jump-mode)
 
 ;;;;;;;;;;;;;
 ;; HL line ;;
