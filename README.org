@@ -1,0 +1,6 @@
+#+TITLE: README
+* About
+  This is my simple emacs configuration.
+
+* Features
+  - A simple major mode *repipe* that allow for quick and easy re-evaluation of shell commands
