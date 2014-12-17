@@ -124,6 +124,12 @@
 (setq c-default-style "stroustrup"
       c-basic-offset 4)
 
+;;;;;;;;;;;;;;;;;
+;; RePipe Mode ;;
+;;;;;;;;;;;;;;;;;
+(load (expand-file-name "repipe.el" user-emacs-directory))
+(require 'repipe)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;         Experimental          ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
