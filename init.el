@@ -6,6 +6,8 @@
 (require 'package)
 (setq package-list
       '(ace-jump-mode
+        auto-complete
+        elscreen
         debbugs
         magit
         git-rebase-mode
@@ -13,7 +15,6 @@
         dash
         s
         f
-        elnode
         rust-mode
         julia-mode
         apel
@@ -61,7 +62,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load escreen extension
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(load "elscreen")
 (elscreen-start)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
