@@ -16,7 +16,8 @@
         elnode
         rust-mode
         julia-mode
-        apel))
+        apel
+        web-server))
 
 (setq package-archives
       '(
