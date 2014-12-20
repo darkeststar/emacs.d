@@ -17,6 +17,7 @@
         f
         rust-mode
         julia-mode
+	multiple-cursors
         apel
         web-server))
 
@@ -105,6 +106,16 @@
 ;; Ace Jump Mode ;;
 ;;;;;;;;;;;;;;;;;;;
 (define-key global-map (kbd "C-c j") 'ace-jump-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; Multiple Cursors ;;
+;;;;;;;;;;;;;;;;;;;;;;
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
 
 ;;;;;;;;;;;;;
 ;; HL line ;;
