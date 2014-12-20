@@ -141,9 +141,9 @@
 (load (expand-file-name "repipe.el" user-emacs-directory))
 (require 'repipe)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;         Experimental          ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(let ((local-init-file "~/.emacs.d/local-init.el"))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Add local configuration ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(let ((local-init-file (expand-file-name "local-init.el" user-emacs-directory)))
   (if (file-exists-p local-init-file)
       (load-file local-init-file)))
