@@ -19,6 +19,7 @@
         julia-mode
 	multiple-cursors
         apel
+        cyberpunk-theme
         web-server))
 
 (setq package-archives
@@ -51,7 +52,7 @@
 (menu-bar-mode -1)
 
 (setq inhibit-startup-screen t)
-(load-theme 'wombat 1)
+(load-theme 'cyberpunk 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; auto complete
@@ -122,6 +123,11 @@
 ;;;;;;;;;;;;;
 (require 'hl-line)
 (set-face-background 'hl-line "#050")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Load Custom functions ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(load (expand-file-name "defuns.el" user-emacs-directory))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;         Random config         ;;
