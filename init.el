@@ -20,6 +20,7 @@
 	multiple-cursors
         apel
         cyberpunk-theme
+        rainbow-delimiters
         web-server))
 
 (setq package-archives
@@ -122,12 +123,17 @@
 ;; HL line ;;
 ;;;;;;;;;;;;;
 (require 'hl-line)
-(set-face-background 'hl-line "#050")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load Custom functions ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load (expand-file-name "defuns.el" user-emacs-directory))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Rainbow Delimiters Mode ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;         Random config         ;;
