@@ -75,7 +75,6 @@
 (ido-mode 1)
 (setq ido-create-new-buffer 'always)
 
-
 ;;;;;;;;;;;;;;
 ;; Uniquify ;;
 ;;;;;;;;;;;;;;
@@ -135,6 +134,27 @@
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
+;;;;;;;;;;;;;;
+;; Org Mode ;;
+;;;;;;;;;;;;;;
+(require 'org)
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((R . t)
+   (dot . t)
+   (emacs-lisp . t)
+   (python . t)
+   (perl . t)
+   (ruby . t)
+   (sh . t)
+   (awk . t)))
+
+;;;;;;;;;;;;;;;;;
+;; RePipe Mode ;;
+;;;;;;;;;;;;;;;;;
+(load (expand-file-name "repipe.el" user-emacs-directory))
+(require 'repipe)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;         Random config         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -146,12 +166,6 @@
 (setq-default indent-tabs-mode nil)
 (setq c-default-style "stroustrup"
       c-basic-offset 4)
-
-;;;;;;;;;;;;;;;;;
-;; RePipe Mode ;;
-;;;;;;;;;;;;;;;;;
-(load (expand-file-name "repipe.el" user-emacs-directory))
-(require 'repipe)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Add local configuration ;;
