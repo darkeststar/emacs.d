@@ -5,3 +5,5 @@
                     (buffer-file-name)
                     "::"
                     (number-to-string (line-number-at-pos)))))
+
+(provide 'defuns)

@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/lisp")
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 ;;;;;;;;;;;;;;;;;;;;
 ;; External repos ;;
@@ -6,6 +6,7 @@
 (require 'package)
 (setq package-list
       '(ace-jump-mode
+        ace-window
         auto-complete
         elscreen
         debbugs
@@ -19,6 +20,7 @@
         julia-mode
 	multiple-cursors
         apel
+        bookmark+
         cyberpunk-theme
         rainbow-delimiters
         web-server))
@@ -108,6 +110,13 @@
 ;;;;;;;;;;;;;;;;;;;
 (define-key global-map (kbd "C-c j") 'ace-jump-mode)
 
+;;;;;;;;;;;;;;;;
+;; Ace Window ;;
+;;;;;;;;;;;;;;;;
+(require 'ace-window)
+(global-set-key (kbd "M-p") 'ace-window)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; Multiple Cursors ;;
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -123,10 +132,10 @@
 ;;;;;;;;;;;;;
 (require 'hl-line)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Load Custom functions ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(load (expand-file-name "defuns.el" user-emacs-directory))
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Load Custom el files ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'defuns)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Rainbow Delimiters Mode ;;
@@ -152,12 +161,12 @@
 ;;;;;;;;;;;;;;;;;
 ;; RePipe Mode ;;
 ;;;;;;;;;;;;;;;;;
-(load (expand-file-name "repipe.el" user-emacs-directory))
 (require 'repipe)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;         Random config         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'bookmark+)
 (column-number-mode 1)
 (put 'erase-buffer 'disabled nil)
 (setq enable-recursive-minibuffers t)

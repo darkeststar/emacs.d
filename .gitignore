@@ -1,12 +1,12 @@
 *~
 local-init.el
+local-lisp/
 ac-comphist.dat
 ac-dict
 auto-save-list
 bookmarks
 elpa
 eshell/
-lisp/
 tramp
 url/
 image-dired/
