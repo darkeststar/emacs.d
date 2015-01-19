@@ -20,6 +20,7 @@
         julia-mode
 	multiple-cursors
         apel
+        slime
         bookmark+
         cyberpunk-theme
         rainbow-delimiters
@@ -162,6 +163,12 @@
 ;; RePipe Mode ;;
 ;;;;;;;;;;;;;;;;;
 (require 'repipe)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Slime Configuration ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'slime-autoloads)
+(setq inferior-lisp-program "/usr/bin/sbcl")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;         Random config         ;;
