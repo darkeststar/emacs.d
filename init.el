@@ -14,16 +14,20 @@
         git-rebase-mode
         git-commit-mode
         dash
+        dash-functional
         s
         f
         rust-mode
+        paredit
         julia-mode
 	multiple-cursors
         apel
         slime
+        ggtags
         bookmark+
         cyberpunk-theme
         rainbow-delimiters
+        pretty-lambdada
         web-server))
 
 (setq package-archives
@@ -32,7 +36,6 @@
         ("elpa" . "http://tromey.com/elpa/")
         ("melpa" . "http://melpa.milkbox.net/packages/")
         ("gnu" . "http://elpa.gnu.org/packages/")
-        ("e6h" . "http://www.e6h.org/packages/")
         ))
 
 (package-initialize)
@@ -164,11 +167,37 @@
 ;;;;;;;;;;;;;;;;;
 (require 'repipe)
 
+;;;;;;;;;;;;;;;;;;;;
+;; Pretty Lambdas ;;
+;;;;;;;;;;;;;;;;;;;;
+(pretty-lambda-for-modes)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Slime Configuration ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'slime-autoloads)
 (setq inferior-lisp-program "/usr/bin/sbcl")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; GG tags setup               ;;
+;; Note: Should have exuberant ;;
+;;       ctags and pygments    ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (ggtags-mode 1)))
+
+;;;;;;;;;;;;;;;;;;;
+;; Paredit setup ;;
+;;;;;;;;;;;;;;;;;;;
+(dolist (hook (list
+               'emacs-lisp-mode-hook
+               'lisp-interaction-mode-hook
+               'lisp-mode-hook
+               'ielm-mode-hook
+               'scheme-mode-hook
+               ))
+  (add-hook hook #'(lambda () (paredit-mode 1))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;         Random config         ;;
