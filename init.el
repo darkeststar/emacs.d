@@ -25,10 +25,12 @@
         slime
         ggtags
         bookmark+
+        undo-tree
         cyberpunk-theme
         rainbow-delimiters
         pretty-lambdada
-        web-server))
+        web-server
+        yasnippet))
 
 (setq package-archives
       '(
@@ -211,6 +213,18 @@
 (setq-default indent-tabs-mode nil)
 (setq c-default-style "stroustrup"
       c-basic-offset 4)
+
+;;;;;;;;;;;;;;;;;;;
+;; Add Undo Tree ;;
+;;;;;;;;;;;;;;;;;;;
+(require 'undo-tree)
+(global-undo-tree-mode)
+
+;;;;;;;;;;;;;;;;;;;;
+;; Add YASnippets ;;
+;;;;;;;;;;;;;;;;;;;;
+(require 'yasnippet)
+(yas-global-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Add local configuration ;;
