@@ -24,6 +24,7 @@
         apel
         slime
         ggtags
+        hy-mode
         bookmark+
         undo-tree
         cyberpunk-theme
@@ -163,6 +164,11 @@
    (ruby . t)
    (sh . t)
    (awk . t)))
+
+;;;;;;;;;;;;;
+;; Hy Mode ;;
+;;;;;;;;;;;;;
+(require 'hy-mode)
 
 ;;;;;;;;;;;;;;;;;
 ;; RePipe Mode ;;
