@@ -11,8 +11,6 @@
         elscreen
         debbugs
         magit
-        git-rebase-mode
-        git-commit-mode
         dash
         dash-functional
         s
@@ -169,6 +167,7 @@
 ;; Hy Mode ;;
 ;;;;;;;;;;;;;
 (require 'hy-mode)
+(add-hook 'hy-mode-hook #'(lambda () (auto-complete-mode 1)))
 
 ;;;;;;;;;;;;;;;;;
 ;; RePipe Mode ;;
@@ -204,7 +203,7 @@
                'lisp-mode-hook
                'ielm-mode-hook
                'scheme-mode-hook
-               ))
+               'hy-mode-hook))
   (add-hook hook #'(lambda () (paredit-mode 1))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
