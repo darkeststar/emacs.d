@@ -29,7 +29,9 @@
         rainbow-delimiters
         pretty-lambdada
         web-server
-        yasnippet))
+        yasnippet
+        markdown-mode
+        ein))
 
 (setq package-archives
       '(
@@ -210,6 +212,8 @@
 ;;         Random config         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'bookmark+)
+(require 'markdown-mode)
+(require 'ein)
 (column-number-mode 1)
 (put 'erase-buffer 'disabled nil)
 (setq enable-recursive-minibuffers t)
