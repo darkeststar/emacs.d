@@ -235,6 +235,14 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Improve SLIME Support ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(let ((slime-helper-file
+       (expand-file-name "~/quicklisp/slime-helper.el")))
+  (when (file-exists-p slime-helper-file)
+    (load slime-helper-file)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Add local configuration ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
