@@ -185,7 +185,14 @@
 ;; Slime Configuration ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'slime-autoloads)
-(setq inferior-lisp-program "/usr/bin/sbcl")
+
+(setq inferior-lisp-program "/usr/bin/sbcl"
+      slime-contribs '(slime-scratch slime-editing-commands))
+
+(let ((slime-helper-file
+       (expand-file-name "~/quicklisp/slime-helper.el")))
+  (when (file-exists-p slime-helper-file)
+    (load slime-helper-file)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GG tags setup               ;;
@@ -234,14 +241,6 @@
 ;;;;;;;;;;;;;;;;;;;;
 (require 'yasnippet)
 (yas-global-mode 1)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Improve SLIME Support ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(let ((slime-helper-file
-       (expand-file-name "~/quicklisp/slime-helper.el")))
-  (when (file-exists-p slime-helper-file)
-    (load slime-helper-file)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Add local configuration ;;
