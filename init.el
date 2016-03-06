@@ -20,7 +20,7 @@
         julia-mode
 	multiple-cursors
         apel
-        slime
+        ;; slime
         ggtags
         hy-mode
         bookmark+
@@ -184,15 +184,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Slime Configuration ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'slime-autoloads)
+
+
+(add-to-list 'load-path "~/.local/src/slime")
 
 (setq inferior-lisp-program "/usr/bin/sbcl"
-      slime-contribs '(slime-scratch slime-editing-commands))
+      slime-contribs '(slime-fancy))
 
-(let ((slime-helper-file
-       (expand-file-name "~/quicklisp/slime-helper.el")))
-  (when (file-exists-p slime-helper-file)
-    (load slime-helper-file)))
+(require 'slime-autoloads)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GG tags setup               ;;
