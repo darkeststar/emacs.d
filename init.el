@@ -241,6 +241,11 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
+;;;;;;;;;;;;;;;;;;;;;
+;; Set custom file ;;
+;;;;;;;;;;;;;;;;;;;;;
+(setq custom-file (expand-file-name ".custom-vars.el" user-emacs-directory))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Add local configuration ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -12,3 +12,5 @@ url/
 image-dired/
 .mc-lists.el
 request/
+.tramp_history
+.custom-vars.el
