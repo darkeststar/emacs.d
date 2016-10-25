@@ -25,6 +25,7 @@
         hy-mode
         bookmark+
         undo-tree
+        afternoon-theme
         cyberpunk-theme
         rainbow-delimiters
         pretty-lambdada
@@ -245,6 +246,14 @@
 ;; Set custom file ;;
 ;;;;;;;;;;;;;;;;;;;;;
 (setq custom-file (expand-file-name ".custom-vars.el" user-emacs-directory))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Make emacs more readable at night
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun night-mode ()
+  (interactive)
+  (require 'afternoon-theme)
+  (set-face-attribute 'region nil :background "#666"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Add local configuration ;;
