@@ -230,6 +230,11 @@
 (setq c-default-style "stroustrup"
       c-basic-offset 4)
 
+;; Make force these to buffers to open in the same window
+(setq same-window-regexps
+      (list
+       "^\\*shell\\*"))
+
 ;;;;;;;;;;;;;;;;;;;
 ;; Add Undo Tree ;;
 ;;;;;;;;;;;;;;;;;;;
