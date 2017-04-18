@@ -280,7 +280,7 @@
 ;;   OS Specific setup    ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (let* ((os-spec-file (concat "os-setup-" (downcase (symbol-name system-type)) ".el"))
-       (el-file (expand-file-name "local-init.el" user-emacs-directory)))
+       (el-file (expand-file-name os-spec-file user-emacs-directory)))
   (when (file-exists-p el-file)
     (load-file el-file)))
 
