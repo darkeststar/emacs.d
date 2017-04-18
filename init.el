@@ -1,5 +1,17 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
+;; Variables local to machine
+(setq slime-path nil
+      local-inferior-lisp-program nil)
+ 
+(let ((local-init-file (expand-file-name "local-vars.el" user-emacs-directory)))
+  (if (file-exists-p local-init-file)
+      (load-file local-init-file)))
+
+;; Setup OS-relates constraints
+(setq use-marmalade (not (eq system-type 'windows-nt))
+      use-ggtags (not (eq system-type 'windows-nt)))
+
 ;;;;;;;;;;;;;;;;;;;;
 ;; External repos ;;
 ;;;;;;;;;;;;;;;;;;;;
@@ -35,8 +47,8 @@
         ein))
 
 (setq package-archives
-      '(
-        ("marmalade" . "http://marmalade-repo.org/packages/")
+      `(
+        ,(if use-marmalade ("marmalade" . "http://marmalade-repo.org/packages/"))
         ("elpa" . "http://tromey.com/elpa/")
         ("melpa" . "http://melpa.milkbox.net/packages/")
         ("gnu" . "http://elpa.gnu.org/packages/")
@@ -187,10 +199,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-(add-to-list 'load-path "~/.local/src/slime")
+(when slime-path
+  (setq slime-contribs '(slime-fancy))
+  (add-to-list 'load-path slime-path))
 
-(setq inferior-lisp-program "/usr/bin/sbcl"
-      slime-contribs '(slime-fancy))
+(when local-inferior-lisp-program
+  (setq inferior-lisp-program local-inferior-lisp-program))
+
 
 (require 'slime-autoloads)
 
@@ -199,9 +214,10 @@
 ;; Note: Should have exuberant ;;
 ;;       ctags and pygments    ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'prog-mode-hook
-          (lambda ()
-            (ggtags-mode 1)))
+(when use-ggtags
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (ggtags-mode 1))))
 
 ;;;;;;;;;;;;;;;;;;;
 ;; Paredit setup ;;
@@ -259,6 +275,14 @@
   (interactive)
   (require 'afternoon-theme)
   (set-face-attribute 'region nil :background "#666"))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;   OS Specific setup    ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(let* ((os-spec-file (concat "os-setup-" (downcase (symbol-name system-type)) ".el"))
+       (el-file (expand-file-name "local-init.el" user-emacs-directory)))
+  (when (file-exists-p el-file)
+    (load-file el-file)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Add local configuration ;;
