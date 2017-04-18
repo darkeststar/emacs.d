@@ -8,7 +8,7 @@
 ;; Workaround for now
 (defun ms-slime ()
   (interactive)
-  (slime slime-path))
+  (slime inferior-lisp-program))
 
 (with-current-buffer "*scratch*"
   (cd "~"))
