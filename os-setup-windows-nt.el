@@ -6,9 +6,11 @@
 (setq visible-bell t)
 
 ;; Workaround for now
-(defun ms-slime ()
+(defun ms-slime (&optional command coding-system)
+  "Start an inferior^_superior Lisp and connect to its Swank server."
   (interactive)
-  (slime inferior-lisp-program))
-
+  (slime-setup)
+  (slime-start* (list :program inferior-lisp-program
+                      :program-args '())))
 (with-current-buffer "*scratch*"
   (cd "~"))
