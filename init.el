@@ -21,7 +21,6 @@
         ace-window
         auto-complete
         elscreen
-        debbugs
         magit
         dash
         dash-functional
@@ -44,14 +43,16 @@
         web-server
         yasnippet
         markdown-mode
+        go-mode
+        csharp-mode
         ein))
 
 (setq package-archives
       `(
-        ,(if use-marmalade ("marmalade" . "http://marmalade-repo.org/packages/"))
-        ("elpa" . "http://tromey.com/elpa/")
+        ,@(when use-marmalade '(("marmalade" . "http://marmalade-repo.org/packages/")))
+        ("elpa" . "https://tromey.com/elpa/")
         ("melpa" . "http://melpa.milkbox.net/packages/")
-        ("gnu" . "http://elpa.gnu.org/packages/")
+        ("gnu" . "https://elpa.gnu.org/packages/")
         ))
 
 (package-initialize)
