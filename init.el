@@ -45,6 +45,7 @@
         markdown-mode
         go-mode
         csharp-mode
+        hyperbole
         ein))
 
 (setq package-archives
@@ -176,7 +177,7 @@
    (python . t)
    (perl . t)
    (ruby . t)
-   (sh . t)
+   (shell . t)
    (awk . t)))
 
 ;;;;;;;;;;;;;

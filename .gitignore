@@ -15,3 +15,8 @@ request/
 .tramp_history
 .custom-vars.el
 local-vars.el
+abbrev_defs
+ido.last
+term-alert/
+term-cmd/
+transient/
