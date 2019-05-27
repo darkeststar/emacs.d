@@ -9,8 +9,7 @@
       (load-file local-init-file)))
 
 ;; Setup OS-relates constraints
-(setq use-marmalade (not (eq system-type 'windows-nt))
-      use-ggtags (not (eq system-type 'windows-nt)))
+(setq use-ggtags (not (eq system-type 'windows-nt)))
 
 ;;;;;;;;;;;;;;;;;;;;
 ;; External repos ;;
@@ -31,15 +30,12 @@
         julia-mode
 	multiple-cursors
         apel
-        ;; slime
         ggtags
         hy-mode
-        bookmark+
         undo-tree
         afternoon-theme
         cyberpunk-theme
         rainbow-delimiters
-        pretty-lambdada
         web-server
         yasnippet
         markdown-mode
@@ -50,7 +46,6 @@
 
 (setq package-archives
       `(
-        ,@(when use-marmalade '(("marmalade" . "http://marmalade-repo.org/packages/")))
         ("elpa" . "https://tromey.com/elpa/")
         ("melpa" . "http://melpa.milkbox.net/packages/")
         ("gnu" . "https://elpa.gnu.org/packages/")
@@ -194,22 +189,19 @@
 ;;;;;;;;;;;;;;;;;;;;
 ;; Pretty Lambdas ;;
 ;;;;;;;;;;;;;;;;;;;;
+(require 'pretty-lambdada)
 (pretty-lambda-for-modes)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Slime Configuration ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
 (when slime-path
   (setq slime-contribs '(slime-fancy))
-  (add-to-list 'load-path slime-path))
+  (add-to-list 'load-path slime-path)
+  (require 'slime-autoloads))
 
 (when local-inferior-lisp-program
   (setq inferior-lisp-program local-inferior-lisp-program))
-
-
-(require 'slime-autoloads)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GG tags setup               ;;
@@ -236,7 +228,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;         Random config         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'bookmark+)
 (require 'markdown-mode)
 (require 'ein)
 (column-number-mode 1)
