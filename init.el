@@ -25,6 +25,17 @@
         dash-functional
         s
         f
+        php-mode
+        password-generator
+        ninja-mode
+        json-mode
+        inf-mongo
+        gdscript-mode
+        projectile
+        restclient
+        realgud
+        realgud-lldb
+        realgud-ipdb
         rust-mode
         paredit
         julia-mode
@@ -33,15 +44,26 @@
         ggtags
         hy-mode
         undo-tree
+        epl
+        elnode
+        dizzee
+        chronos
+        ace-flyspell
+        docker
+        docker-tramp
+        dockerfile-mode
         afternoon-theme
         cyberpunk-theme
         rainbow-delimiters
         web-server
         yasnippet
+        systemd
+        symon
         markdown-mode
         go-mode
         csharp-mode
         hyperbole
+        uuidgen
         ein))
 
 (setq package-archives
