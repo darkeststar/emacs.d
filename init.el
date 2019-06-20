@@ -61,6 +61,13 @@
         symon
         markdown-mode
         go-mode
+        counsel
+        counsel-gtags
+        counsel-tramp
+        counsel-projectile
+        swiper
+        company
+        projectile
         csharp-mode
         hyperbole
         uuidgen
@@ -277,6 +284,31 @@
 ;;;;;;;;;;;;;;;;;;;;
 (require 'yasnippet)
 (yas-global-mode 1)
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;; Ivy/Counsel/Swiper ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t
+      ivy-count-format "%d/%d ")
+
+(global-set-key "\C-s" 'swiper)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "M-y") 'counsel-yank-pop)
+(define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+
+;;;;;;;;;;;;;;;;
+;; Projectile ;;
+;;;;;;;;;;;;;;;;
+(projectile-mode 1)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c r") 'projectile-command-map)
+(setq projectile-completion-system 'ivy)
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;; Counsel Projectile ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+(counsel-projectile-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Set custom file ;;
