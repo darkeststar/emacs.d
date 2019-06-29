@@ -257,6 +257,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;         Random config         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'bookmark+)
 (require 'markdown-mode)
 (require 'ein)
 (column-number-mode 1)
