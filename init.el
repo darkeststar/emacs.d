@@ -1,5 +1,8 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
+;; Hack to get around https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 ;; Variables local to machine
 (setq slime-path nil
       local-inferior-lisp-program nil)
@@ -69,6 +72,8 @@
         company
         projectile
         csharp-mode
+        fill-column-indicator
+        yaml-mode
         hyperbole
         uuidgen
         ein))
@@ -310,6 +315,26 @@
 ;; Counsel Projectile ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
 (counsel-projectile-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; fill column mode ;;
+;;;;;;;;;;;;;;;;;;;;;;
+(require 'fill-column-indicator)
+(setq fci-rule-color "darkblue"
+      fci-rule-width 1)
+(setq-default fci-rule-column 80)
+
+(dolist (mode '(c-mode-hook
+                csharp-mode-hook
+                emacs-lisp-mode-hook
+                go-mode-hook
+                lisp-mode-hook))
+  (add-hook mode 'fci-mode))
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;; Disable bell sound ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+(setq ring-bell-function 'ignore)
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Set custom file ;;
