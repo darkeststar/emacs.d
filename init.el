@@ -76,6 +76,7 @@
         yaml-mode
         hyperbole
         uuidgen
+        autumn-light-theme
         ein))
 
 (setq package-archives
@@ -348,6 +349,11 @@
   (interactive)
   (require 'afternoon-theme)
   (set-face-attribute 'region nil :background "#666"))
+
+(defun autumn-mode ()
+  (interactive)
+  (require 'autumn-light-theme)
+  (load-theme 'autumn-light-theme 1))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;   OS Specific setup    ;;
