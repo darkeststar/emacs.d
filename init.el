@@ -71,6 +71,7 @@
         swiper
         company
         projectile
+        gnu-elpa-keyring-update
         csharp-mode
         fill-column-indicator
         yaml-mode
@@ -316,6 +317,11 @@
 ;; Counsel Projectile ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
 (counsel-projectile-mode)
+
+;;;;;;;;;;;;;;;
+;; hyperbole ;;
+;;;;;;;;;;;;;;;
+(require 'hyperbole)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; fill column mode ;;
