@@ -72,6 +72,7 @@
         company
         projectile
         gnu-elpa-keyring-update
+        notmuch
         csharp-mode
         fill-column-indicator
         yaml-mode
@@ -368,6 +369,28 @@
        (el-file (expand-file-name os-spec-file user-emacs-directory)))
   (when (file-exists-p el-file)
     (load-file el-file)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Email related config ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'notmuch)
+(defun delete-mail-in-region ()
+  (interactive)
+  (notmuch-search-remove-tag '("-inbox" "-unread" "+deleted")))
+
+(defun delete-mail-nm-show ()
+  (interactive)
+  (notmuch-show-remove-tag '("-inbox" "-unread" "+deleted")))
+
+(define-key notmuch-search-mode-map "D" 'delete-mail-in-region)
+
+(define-key notmuch-show-mode-map "D" 'delete-mail-nm-show)
+
+(setq send-mail-function 'sendmail-send-it
+      sendmail-program "/usr/bin/msmtp"
+      mail-specify-envelope-from t
+      message-sendmail-envelope-from 'header
+      mail-envelope-from 'header)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Add local configuration ;;
