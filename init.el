@@ -22,7 +22,6 @@
       '(ace-jump-mode
         ace-window
         auto-complete
-        elscreen
         magit
         dash
         dash-functional
@@ -119,9 +118,9 @@
 (ac-config-default)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Load escreen extension
+;; Load tab-bar-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(elscreen-start)
+(tab-bar-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;          IDO config           ;;
