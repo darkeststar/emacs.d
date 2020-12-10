@@ -84,7 +84,7 @@
 (setq package-archives
       `(
         ("elpa" . "https://tromey.com/elpa/")
-        ("melpa" . "http://melpa.milkbox.net/packages/")
+        ("melpa" . "https://melpa.org/packages/")
         ("gnu" . "https://elpa.gnu.org/packages/")
         ))
 
