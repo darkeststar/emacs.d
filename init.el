@@ -122,6 +122,47 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (tab-bar-mode)
 
+(defun jump-tab-by-number ()
+  (interactive)
+  (tab-bar-select-tab (string-to-number (string last-command-event))))
+
+(defun move-tab-to-left ()
+  (interactive)
+  (tab-bar-move-tab -1))
+
+(defvar custom-tabbar-keymap (make-sparse-keymap))
+(define-key custom-tabbar-keymap "c" 'tab-bar-new-tab)
+(define-key custom-tabbar-keymap "\C-c" 'tab-bar-new-tab)
+(define-key custom-tabbar-keymap "k" 'tab-bar-close-tab)
+(define-key custom-tabbar-keymap "\C-k" 'tab-bar-close-tab)
+(define-key custom-tabbar-keymap "K" 'tab-bar-close-other-tabs)
+(define-key custom-tabbar-keymap (kbd "RET") 'tab-bar-select-tab-by-name)
+(define-key custom-tabbar-keymap "<return>" 'tab-bar-select-tab-by-name)
+(define-key custom-tabbar-keymap "\C-n" 'tab-bar-switch-to-next-tab)
+(define-key custom-tabbar-keymap "n"    'tab-bar-switch-to-next-tab)
+(define-key custom-tabbar-keymap "\C-p" 'tab-bar-switch-to-prev-tab)
+(define-key custom-tabbar-keymap "p"    'tab-bar-switch-to-prev-tab)
+(define-key custom-tabbar-keymap "a"    'tab-bar-switch-to-recent-tab)
+(define-key custom-tabbar-keymap "\C-a"    'tab-bar-switch-to-recent-tab)
+(define-key custom-tabbar-keymap (kbd "<right>") 'tab-bar-move-tab)
+(define-key custom-tabbar-keymap (kbd "l") 'tab-bar-move-tab)
+(define-key custom-tabbar-keymap (kbd "C-l") 'tab-bar-move-tab)
+(define-key custom-tabbar-keymap (kbd "<left>") 'move-tab-to-left)
+(define-key custom-tabbar-keymap (kbd "C-j") 'move-tab-to-left)
+(define-key custom-tabbar-keymap (kbd "j") 'move-tab-to-left)
+
+(define-key custom-tabbar-keymap "1" 'jump-tab-by-number)
+(define-key custom-tabbar-keymap "2" 'jump-tab-by-number)
+(define-key custom-tabbar-keymap "3" 'jump-tab-by-number)
+(define-key custom-tabbar-keymap "4" 'jump-tab-by-number)
+(define-key custom-tabbar-keymap "5" 'jump-tab-by-number)
+(define-key custom-tabbar-keymap "6" 'jump-tab-by-number)
+(define-key custom-tabbar-keymap "7" 'jump-tab-by-number)
+(define-key custom-tabbar-keymap "8" 'jump-tab-by-number)
+(define-key custom-tabbar-keymap "9" 'jump-tab-by-number)
+
+(global-set-key "\C-z" custom-tabbar-keymap)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;          IDO config           ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
