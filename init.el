@@ -56,6 +56,7 @@
         dockerfile-mode
         afternoon-theme
         cyberpunk-theme
+        leuven-theme
         rainbow-delimiters
         web-server
         yasnippet
@@ -68,6 +69,8 @@
         counsel-tramp
         counsel-projectile
         swiper
+        daemons
+        dimmer
         company
         projectile
         gnu-elpa-keyring-update
@@ -108,7 +111,8 @@
 (menu-bar-mode -1)
 
 (setq inhibit-startup-screen t)
-(load-theme 'cyberpunk 1)
+;; (load-theme 'cyberpunk 1)
+(load-theme 'leuven 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; auto complete
@@ -220,11 +224,23 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+;;;;;;;;;;;
+;; Magit ;;
+;;;;;;;;;;;
+(require 'git-rebase)
+
+;;;;;;;;;;;;;;;;;
+;; Dimmer mode ;;
+;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;
 ;; HL line ;;
 ;;;;;;;;;;;;;
 (require 'hl-line)
+
+(dolist (mode-hook '(package-menu-mode-hook
+                     git-rebase-mode-hook))
+  (add-hook mode-hook #'hl-line-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load Custom el files ;;
