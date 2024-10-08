@@ -52,7 +52,6 @@
         chronos
         ace-flyspell
         docker
-        docker-tramp
         dockerfile-mode
         afternoon-theme
         cyberpunk-theme
@@ -111,8 +110,8 @@
 (menu-bar-mode -1)
 
 (setq inhibit-startup-screen t)
-;; (load-theme 'cyberpunk 1)
-(load-theme 'leuven 1)
+(load-theme 'cyberpunk 1)
+;; (load-theme 'leuven 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; auto complete
@@ -321,7 +320,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;         Random config         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'bookmark+)
+(require 'tramp-container)
 (require 'markdown-mode)
 (require 'ein)
 (column-number-mode 1)
